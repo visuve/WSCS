@@ -1,5 +1,6 @@
 #include "../wshf2/wshf2.hpp"
 #include "../wsbc512/wsbc512.hpp"
+#include "../wssc8/wssc8.hpp"
 
 #include <cassert>
 #include <chrono>
@@ -87,10 +88,48 @@ namespace wscs
 			plain << " Mauris feugiat aliquam tempor. Integer laoreet vulputate donec.";
 
 			std::string copy(plain.str());
-
 			encryption.encrypt(plain, secret);
+			plain = std::stringstream();
 
 			wsbc512 decryption;
+			decryption.initialize("password", 8);
+			decryption.decrypt(secret, plain);
+
+			assert(copy == plain.str());
+		}
+	}
+
+	void wssc8_test()
+	{
+		// String encrypt to decrypt equals
+		{
+			wssc8 encryption;
+			encryption.initialize("password", 8);
+
+			std::string secret = "Lorem ipsum dolor sit amet, consectetur adipiscing elit gravida.";
+			encryption.encrypt(secret.data(), secret.length());
+			assert(secret.compare("Lorem ipsum dolor sit amet, consectetur adipiscing elit gravida.") != 0);
+
+			wssc8 decryption;
+			decryption.initialize("password", 8);
+			decryption.decrypt(secret.data(), secret.length());
+			assert(secret.compare("Lorem ipsum dolor sit amet, consectetur adipiscing elit gravida.") == 0);
+		}
+
+		// Stream encrypt to decrypt equals
+		{
+			wssc8 encryption;
+			encryption.initialize("password", 8);
+
+			std::stringstream plain, secret;
+			plain << "Lorem ipsum dolor sit amet, consectetur adipiscing elit gravida.";
+
+			std::string copy(plain.str());
+
+			encryption.encrypt(plain, secret);
+			plain = std::stringstream();
+
+			wssc8 decryption;
 			decryption.initialize("password", 8);
 			decryption.decrypt(secret, plain);
 
@@ -106,6 +145,7 @@ namespace wscs
 
 			wshf2_test();
 			wsbc512_test();
+			wssc8_test();
 
 			auto after = std::chrono::high_resolution_clock::now();
 			auto diff = std::chrono::duration_cast<std::chrono::microseconds>(after - before);

@@ -10,3 +10,6 @@
 
 ## Block cipher:
 - See [WSBC-512](wsbc512)
+
+## Stream cipher:
+- See [WSSC-8](wssc8)

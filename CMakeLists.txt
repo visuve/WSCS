@@ -18,4 +18,5 @@ set(LIBRARY_OUTPUT_PATH "..")
 
 add_subdirectory("wshf2")
 add_subdirectory("wsbc512")
+add_subdirectory("wssc8")
 add_subdirectory("tests")
