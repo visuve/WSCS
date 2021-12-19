@@ -10,11 +10,17 @@ jobs:
     - name: Install tools
       run: |
         sudo apt update
-        sudo apt --yes install clang cmake
+        sudo apt --yes install clang cmake valgrind
 
     - name: Build
       run: |
         mkdir out
         cd out
-        cmake ..
+        cmake -DCMAKE_BUILD_TYPE=Debug ..
         make
+
+    - name: Test
+      run: |
+        cd out
+        valgrind --leak-check=yes ./wscs_tests
+
