@@ -7,9 +7,10 @@ namespace wscs
 {
 	class wshf2
 	{
+	public:
 		constexpr static size_t bits = 256;
 
-	public:
+		wshf2();
 		wshf2(const wshf2& other);
 		wshf2(wshf2&& other) noexcept;
 		wshf2& operator = (const wshf2& other);
@@ -17,7 +18,7 @@ namespace wscs
 
 		void initialize();
 
-		void update(void* data, size_t length);
+		void update(const void* data, size_t length);
 		void update(std::istream& stream);
 
 		std::bitset<bits> finalize() const;

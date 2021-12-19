@@ -14,3 +14,4 @@ else()
 endif()
 
 add_subdirectory("wshf2")
+add_subdirectory("tests")

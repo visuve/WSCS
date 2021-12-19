@@ -2,6 +2,11 @@
 
 namespace wscs
 {
+	wshf2::wshf2() :
+		_sum(0)
+	{
+	}
+
 	wshf2::wshf2(const wshf2& other) :
 		_sum(other._sum)
 	{
@@ -37,14 +42,14 @@ namespace wscs
 		_sum = 0;
 	}
 
-	void wshf2::update(void* data, size_t length)
+	void wshf2::update(const void* data, size_t length)
 	{
 		if (!data)
 		{
-			throw std::invalid_argument("Data is null!");
+			throw std::invalid_argument("data is null!");
 		}
 
-		uint8_t* iter = reinterpret_cast<uint8_t*>(data);
+		uint8_t* iter = reinterpret_cast<uint8_t*>(const_cast<void*>(data));
 
 		for (size_t i = 0; i < length; ++i)
 		{
