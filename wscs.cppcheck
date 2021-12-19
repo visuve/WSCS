@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+	<builddir>out/cppcheck</builddir>
+	<check-headers>true</check-headers>
+	<check-unused-templates>true</check-unused-templates>
+	<max-ctu-depth>10</max-ctu-depth>
+	<paths>
+		<dir name="wshf2"/>
+	</paths>
+</project>
