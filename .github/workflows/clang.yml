@@ -1,4 +1,4 @@
-name: Ubuntu Clang 11
+name: clang
 
 on: [push, pull_request]
 
@@ -16,6 +16,8 @@ jobs:
       run: |
         mkdir out
         cd out
+        export CC=/usr/bin/clang
+        export CXX=/usr/bin/clang++
         cmake -DCMAKE_BUILD_TYPE=Debug ..
         make
 

@@ -1,4 +1,4 @@
-name: Ubuntu GCC 10
+name: gcc
 
 on: [push, pull_request]
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    - name: Install tools
+    - name: Prerequisites
       run: |
         sudo apt update
         sudo apt install g++ cmake valgrind
@@ -16,6 +16,8 @@ jobs:
       run: |
         mkdir out
         cd out
+        export CC=/usr/bin/gcc
+        export CXX=/usr/bin/g++
         cmake -DCMAKE_BUILD_TYPE=Debug ..
         make
 

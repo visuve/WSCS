@@ -1,4 +1,4 @@
-name: cppcheck
+name: analyze
 
 on: [push, pull_request]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Cppcheck
+    - name: Install tools
       run: |
         sudo apt update
         sudo apt --yes install cppcheck
 
-    - name: Static analysis
+    - name: Analyze
       run: |
         cppcheck --project=wscs.cppcheck
