@@ -2,15 +2,29 @@
 
 #include <cassert>
 #include <iostream>
+#include <sstream>
 
 namespace wscs
 {
 	void wshf2_test()
 	{
-		wshf2 hash;
-		hash.update(reinterpret_cast<const void*>("lol"), 3);
-		std::bitset<wshf2::bits> result = hash.finalize();
-		assert(result.all());
+		{
+			wshf2 hash;
+			hash.update(reinterpret_cast<const void*>("lol"), 3);
+
+			std::bitset<wshf2::bits> result = hash.finalize();
+			assert(result.all());
+		}
+		{
+			std::stringstream stream;
+			stream << "lol";
+
+			wshf2 hash;
+			hash.update(stream);
+
+			std::bitset<wshf2::bits> result = hash.finalize();
+			assert(result.all());
+		}
 	}
 
 	int run_tests()

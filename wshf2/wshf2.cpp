@@ -61,7 +61,7 @@ namespace wscs
 	{
 		uint8_t buffer = '\0';
 
-		while (stream.get(reinterpret_cast<char*>(&buffer), 1))
+		while (stream.read(reinterpret_cast<char*>(&buffer), 1))
 		{
 			_sum += buffer;
 		}
