@@ -1,0 +1,1 @@
+add_executable(wshf2 "wshf2.cpp")
