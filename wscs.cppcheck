@@ -6,5 +6,6 @@
 	<max-ctu-depth>10</max-ctu-depth>
 	<paths>
 		<dir name="wshf2"/>
+		<dir name="wsbc512"/>
 	</paths>
 </project>

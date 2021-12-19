@@ -7,3 +7,6 @@
 
 ## Hash function:
 - See [WSHF-2](wshf2)
+
+## Block cipher:
+- See [WSBC-512](wsbc512)

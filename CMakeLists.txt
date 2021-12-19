@@ -17,4 +17,5 @@ set(EXECUTABLE_OUTPUT_PATH "..")
 set(LIBRARY_OUTPUT_PATH "..")
 
 add_subdirectory("wshf2")
+add_subdirectory("wsbc512")
 add_subdirectory("tests")
