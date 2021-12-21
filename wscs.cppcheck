@@ -7,5 +7,6 @@
 	<paths>
 		<dir name="wshf2"/>
 		<dir name="wsbc512"/>
+		<dir name="wssc8"/>
 	</paths>
 </project>
