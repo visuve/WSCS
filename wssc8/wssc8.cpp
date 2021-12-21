@@ -1,7 +1,6 @@
 #include "wssc8.hpp"
-#include "wssc8.hpp"
-#include "wssc8.hpp"
 #include <bitset>
+#include <cstring>
 
 namespace wscs
 {
