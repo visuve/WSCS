@@ -15,4 +15,4 @@ jobs:
 
     - name: Analyze
       run: |
-        cppcheck --project=wscs.cppcheck
+        cppcheck --project=wscs.cppcheck --error-exitcode=1 --enable=warning,style
