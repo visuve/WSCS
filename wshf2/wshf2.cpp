@@ -49,7 +49,7 @@ namespace wscs
 			throw std::invalid_argument("data is null!");
 		}
 
-		uint8_t* iter = reinterpret_cast<uint8_t*>(const_cast<void*>(data));
+		auto iter = reinterpret_cast<const uint8_t*>(data);
 
 		for (size_t i = 0; i < length; ++i)
 		{
