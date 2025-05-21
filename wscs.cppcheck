@@ -8,5 +8,6 @@
 		<dir name="wshf2"/>
 		<dir name="wsbc512"/>
 		<dir name="wssc8"/>
+		<dir name="tests"/>
 	</paths>
 </project>
