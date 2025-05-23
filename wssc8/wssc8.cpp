@@ -1,11 +1,14 @@
 #include "wssc8.hpp"
 #include <bitset>
 #include <cstring>
+#include <cstdio>
 
 namespace wscs
 {
 	void flip_bits(void* data, size_t length, const std::array<uint8_t, wssc8::bytes>& key)
 	{
+		auto esimerkki = new char[100];
+		
 		uint8_t* iter = reinterpret_cast<uint8_t*>(data);
 
 		for (size_t i = 0; i < length; ++i)
@@ -13,6 +16,8 @@ namespace wscs
 			uint8_t index_to_flip = key[i % key.size()];
 			iter[i] ^= 1u << index_to_flip;
 		}
+
+		puts(esimerkki);
 	}
 
 	void flip_bits(std::istream& input, std::ostream& output, const std::array<uint8_t, wssc8::bytes>& key)
